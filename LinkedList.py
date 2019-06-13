@@ -28,6 +28,17 @@ class LinkedList():
             self.tail = insert_node
         pass
     
+    def search(self, search):
+        search_node = self.head
+        while search_node != None:
+            if search_node.data == search:
+                return search
+            search_node = search_node.next
+        return 'Not Found'
+    
+    def delete(self, delete):
+        pass
+    
     def display(self):
         curr = self.head
         while curr != None:
