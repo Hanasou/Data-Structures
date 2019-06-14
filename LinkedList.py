@@ -5,6 +5,7 @@ class Node():
         self.data = data
         self.next = None
         self.prev = None
+    
 
 
 class LinkedList():
@@ -32,12 +33,27 @@ class LinkedList():
         search_node = self.head
         while search_node != None:
             if search_node.data == search:
-                return search
+                return search_node
             search_node = search_node.next
         return 'Not Found'
     
     def delete(self, delete):
-        pass
+        delete_me = self.search(delete)
+        
+        if delete_me == 'Not Found':
+            return 'Not Found'
+        
+        if delete_me == self.head:
+            self.head = delete_me.next
+            self.head.prev = None
+        elif delete_me == self.tail:
+            self.tail = delete_me.prev
+            self.tail.next = None
+        else:
+            delete_me.prev.next = delete_me.next
+            delete_me.next.prev = delete_me.prev
+        
+        delete_me = None
     
     def display(self):
         curr = self.head
@@ -48,4 +64,5 @@ class LinkedList():
 sample = Node(1)
 sample_list = LinkedList([1,2,3])
 
+sample_list.delete(2)
 sample_list.display()
