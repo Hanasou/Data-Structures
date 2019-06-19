@@ -17,11 +17,18 @@ class BST():
         self.root = None
         pass
     
+    def search(self, n):
+        curr_node = self.root
+        if curr_node == None:
+            return None
+        if curr_node.val == n:
+            return curr_node
+        
+        if curr_node.val > n:
+            pass
+    
     def insert(self, n):
         pass
     
     def delete(self, n):
-        pass
-    
-    def search(self, n):
         pass
